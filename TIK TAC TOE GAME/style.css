@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #092136; /* Light background color */
+    margin: 0;
+    padding: 20px;
+    position: relative; /* To position the glitter effect */
+    overflow: hidden; /* To contain the glitter effect */
+}
+
+h1 {
+    color: #a8c8d8;
+    margin-bottom: 20px;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+    background-color: #f9f9f9;
+    transform: scale(1.05);
+}
+
+.cell.X {
+    color: #e74c3c;
+}
+
+.cell.O {
+    color: #3498db;
+}
+
+#resetButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #3498db;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+#resetButton:hover {
+    background-color: #2980b9;
+}
+
+#message {
+    font-size: 3rem; /* Extra large text for the winner */
+    font-weight: bold;
+    color: #e74c3c;
+    margin: 20px;
+}
+
+/* Glitter effect styles */
+.glitter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.glitter .dot {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    animation: glitter-animation 1.5s infinite;
+}
+
+@keyframes glitter-animation {
+    0% {
+        transform: translateY(-100px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) scale(1.5);
+        opacity: 0;
+    }
+}
